@@ -23,5 +23,5 @@ Steps:
 
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
-* upload `python-pulseaudio-profiles-X.Y.Z.tar.gz` previously generated with `setyp.py`
+* upload `python-pulseaudio-profiles-trayicon-X.Y.Z.tar.gz` previously generated with `setyp.py`
 * publish
