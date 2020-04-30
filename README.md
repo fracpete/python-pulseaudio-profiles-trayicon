@@ -20,3 +20,13 @@ You can install the tool as follows:
 pip install python-pulseaudio-profiles-trayicon
 ```
 
+### Usage
+
+Once the application started up and you see the tray icon (a speaker with *PA* next to it), you can 
+right-click and choose from the following actions:
+
+* **Create** - allows you to store the current pulseaudio setup under a profile name or your choosing 
+* **Apply** - sub-menu for applying profiles
+* **Delete** - sub-menu for deleting profiles 
+* **Refresh** - refreshes the menu, e.g., when you created or deleted profiles manually through the commandline
+* **Exit** - exits the tray icon
