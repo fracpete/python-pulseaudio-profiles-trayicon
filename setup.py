@@ -45,6 +45,10 @@ setup(
         "pycairo",
         "PyGObject",
     ],
+    data_files = [
+        ('share/applications/', ['share/applications/ppp-tray.desktop']),
+        ('share/icons/', ['share/icons/ppp-tray.png']),
+    ],
     entry_points={
         "console_scripts": [
             "ppp-tray=pypulseprofilestray.tray:sys_main",

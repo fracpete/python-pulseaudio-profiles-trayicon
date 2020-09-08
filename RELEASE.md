@@ -17,6 +17,16 @@ rm dist/*
 ```
 
 
+# Debian
+
+Generate Debian package with the following commands (requires `python3-all` and `python3-stdeb`):
+
+```commandline
+rm -Rf deb_dist/*
+python3 setup.py --command-packages=stdeb.command bdist_deb
+```
+
+
 # Github
 
 Steps:
@@ -24,4 +34,5 @@ Steps:
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
 * upload `python-pulseaudio-profiles-trayicon-X.Y.Z.tar.gz` previously generated with `setyp.py`
+* upload `deb_dist/python3-python-pulseaudio-profiles-trayicon_X.Y.Z-1_all.deb` previously generated with `stdeb`
 * publish
