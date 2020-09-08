@@ -20,6 +20,10 @@ You can install the tool as follows:
 pip install python-pulseaudio-profiles-trayicon
 ```
 
+Or, when running Debian/Ubuntu, download and install the Debian package from the 
+[Releases section](https://github.com/fracpete/python-pulseaudio-profiles-trayicon/releases).
+
+
 ### Usage
 
 Once the application started up and you see the tray icon (a speaker with *PA* next to it), you can 
