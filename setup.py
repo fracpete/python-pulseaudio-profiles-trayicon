@@ -41,7 +41,7 @@ setup(
     author='Peter "fracpete" Reutemann',
     author_email='fracpete@gmail.com',
     install_requires=[
-        "python-pulseaudio-profiles>=0.0.2",
+        "python-pulseaudio-profiles>=0.0.3",
         "pycairo",
         "PyGObject",
     ],
