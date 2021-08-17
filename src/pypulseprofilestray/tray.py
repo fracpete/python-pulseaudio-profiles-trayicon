@@ -1,6 +1,8 @@
 import os
+import json
 import traceback
 import gi
+from pypulseprofilestray.config import THEMES, config_file, load_config
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 gi.require_version('AppIndicator3', '0.1')
@@ -12,6 +14,8 @@ CURRPATH = os.path.dirname(os.path.realpath(__file__))
 
 indicator = None
 """ the tray icon indicator instance. """
+
+""" the name of the application. """
 
 
 class ConfirmationDialog(Gtk.Dialog):
@@ -70,6 +74,34 @@ class InputDialog(Gtk.Dialog):
         self.show_all()
 
 
+def current_theme():
+    """
+    Returns the currently configured theme.
+
+    :return: the current theme
+    :rtype: str
+    """
+    result = "Dark"
+    config = load_config()
+    if ("theme" in config) and (config["theme"] in THEMES):
+        result = config["theme"]
+    return result
+
+
+def store_theme(theme):
+    """
+    Stores the theme as the default one.
+
+    :param theme: the theme to use
+    :type theme: str
+    """
+    print("Applying theme: %s" % theme)
+    config = load_config()
+    config["theme"] = theme
+    with open(config_file(), "w") as cf:
+        json.dump(config, cf, indent=2)
+
+
 def main():
     """
     The main method for starting up the tray icon
@@ -78,7 +110,7 @@ def main():
     global indicator
     indicator = AppIndicator3.Indicator.new(
         "customtray",
-        CURRPATH + "/icon.png",
+        CURRPATH + "/" + THEMES[current_theme()],
         AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
     indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
     indicator.set_menu(menu())
@@ -138,6 +170,18 @@ def menu():
     menuitem_refresh = Gtk.MenuItem(label='Refresh')
     menuitem_refresh.connect('activate', refresh_profiles)
     result.append(menuitem_refresh)
+
+    result.append(Gtk.SeparatorMenuItem())
+
+    # themes
+    menu_theme = Gtk.Menu()
+    menuitem_theme = Gtk.MenuItem(label='Theme')
+    menuitem_theme.set_submenu(menu_theme)
+    result.append(menuitem_theme)
+    for k in THEMES:
+        menuitem = Gtk.MenuItem(label=k)
+        menuitem.connect('activate', select_theme)
+        menu_theme.append(menuitem)
 
     result.append(Gtk.SeparatorMenuItem())
 
@@ -217,6 +261,20 @@ def refresh_profiles(_):
 
     print("Refreshing profiles")
     update_menu()
+
+
+def select_theme(e):
+    """
+    Applies the theme with the name stored in the label.
+
+    :param e: the menu item that triggered the event
+    :type e: Gtk.MenuItem
+    """
+    global indicator
+    theme = e.get_label()
+    store_theme(theme)
+    icon = THEMES[theme]
+    indicator.set_icon(CURRPATH + "/" + icon)
 
 
 def exit_tray(_):
