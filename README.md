@@ -8,6 +8,8 @@ You can start the tray icon with `ppp-tray`.
 
 ## Installation
 
+### Prerequisites
+
 Make sure you have the following dependencies installed:
 
 ```commandline
@@ -26,14 +28,24 @@ On Ubuntu 20.04 and newer:
 sudo apt install gir1.2-ayatanaappindicator3-0.1
 ```
 
+### pip
+
 You can install the tool as follows:
 
 ```
-pip install python-pulseaudio-profiles-trayicon
+pip3 install --user python-pulseaudio-profiles-trayicon
 ```
+
+### Debian
 
 Or, when running Debian/Ubuntu, download and install the Debian package from the 
 [Releases section](https://github.com/fracpete/python-pulseaudio-profiles-trayicon/releases).
+
+You will also need to install the underlying library:
+
+```
+pip3 install --user python-pulseaudio-profiles
+```
 
 
 ### Usage
