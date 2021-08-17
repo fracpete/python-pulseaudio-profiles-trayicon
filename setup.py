@@ -37,7 +37,7 @@ setup(
         "pypulseprofilestray",
     ],
     include_package_data=True,
-    version="0.0.1",
+    version="0.0.2",
     author='Peter "fracpete" Reutemann',
     author_email='fracpete@gmail.com',
     install_requires=[
