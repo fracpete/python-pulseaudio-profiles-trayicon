@@ -11,7 +11,19 @@ You can start the tray icon with `ppp-tray`.
 Make sure you have the following dependencies installed:
 
 ```commandline
-sudo apt install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 gir1.2-appindicator3 
+sudo apt install libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 
+```
+
+On Ubuntu 18.04 and older: 
+
+```commandline
+sudo apt install gir1.2-appindicator3 
+```
+
+On Ubuntu 20.04 and newer:
+
+```commandline
+sudo apt install gir1.2-ayatanaappindicator3-0.1
 ```
 
 You can install the tool as follows:
