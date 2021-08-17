@@ -57,4 +57,5 @@ right-click and choose from the following actions:
 * **Apply** - sub-menu for applying profiles
 * **Delete** - sub-menu for deleting profiles 
 * **Refresh** - refreshes the menu, e.g., when you created or deleted profiles manually through the commandline
+* **Theme** - allows you to change the tray icon, whether to use a dark or light icon
 * **Exit** - exits the tray icon
