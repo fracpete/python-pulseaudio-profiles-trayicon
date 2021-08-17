@@ -19,13 +19,19 @@ rm dist/*
 
 # Debian
 
-Generate Debian package with the following commands (requires `python3-all` and `python3-stdeb`):
+Prerequisites:
 
 ```commandline
+sudo apt-get install python3-all python3-stdeb dh-python
+```
+
+Generate Debian package with the following commands:
+
+```commandline
+rm -f *.tar.gz
 rm -Rf deb_dist/*
 python3 setup.py --command-packages=stdeb.command bdist_deb
 ```
-
 
 # Github
 
