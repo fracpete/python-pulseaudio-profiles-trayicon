@@ -39,6 +39,6 @@ Steps:
 
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
-* upload `python-pulseaudio-profiles-trayicon-X.Y.Z.tar.gz` previously generated with `setyp.py`
+* upload `python-pulseaudio-profiles-trayicon-X.Y.Z.tar.gz` previously generated with `setup.py`
 * upload `deb_dist/python3-python-pulseaudio-profiles-trayicon_X.Y.Z-1_all.deb` previously generated with `stdeb`
 * publish
